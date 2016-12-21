@@ -6,8 +6,8 @@ const async = require('async');
 /**
  * Lambda entry point
  *
- * @param event         the event from the Lambda call
- * @param context       the context from the Lambda call
+ * @param {Object} event - the event from the Lambda call
+ * @param {function} context - the context from the Lambda call
  */
 exports.handler = (event, context) => {
     async.series([
@@ -27,8 +27,8 @@ exports.handler = (event, context) => {
     /**
      * The callback function that returns the results of the Lambda call.
      *
-     * @param err           any error that may have occurred
-     * @param results       the results of the callback returns of each of the functions
+     * @param {Object} err - any error that may have occurred
+     * @param {Object[]} results - the results of the callback returns of each of the functions
      */
     function (err, results) {
         if (err) {
