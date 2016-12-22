@@ -10,8 +10,8 @@ let putParams;
 /**
  * Connects to the database and sets the client.
  *
- * @param context       the context from the exports.handler
- * @param callback      the callback function
+ * @param {Object} context - the context from the exports.handler
+ * @param {function} callback - the callback function
  */
 exports.init = function init(context, callback) {
     initDatabase.connectDB(context, function (results) {
@@ -23,8 +23,8 @@ exports.init = function init(context, callback) {
 /**
  * Gets the modification parameters from the event and sets the put parameters object variable.
  *
- * @param event         the event from the exports.handler
- * @param callback      the callback function
+ * @param {Object} event - the event from the exports.handler
+ * @param {function} callback - the callback function
  */
 exports.setup = function setup(event, callback) {
     let name = event.body.name !== undefined ? event.body.name : '';
@@ -45,8 +45,8 @@ exports.setup = function setup(event, callback) {
 /**
  * Gets all the modified records and passes them to the callback results.
  *
- * @param context       the context from the exports.handler
- * @param callback      the callback function
+ * @param {Object} context - the context from the exports.handler
+ * @param {function} callback - the callback function
  */
 exports.process = function process(context, callback) {
     dataFunctions.modifyAllRecords(putParams, client, context, function (results) {
@@ -59,8 +59,8 @@ exports.process = function process(context, callback) {
 /**
  * Ends the connection with the database client.
  *
- * @param context       the context from the exports.handler
- * @param callback      the callback function
+ * @param {Object} context - the context from the exports.handler
+ * @param {function} callback - the callback function
  */
 exports.takedown = function takedown(context, callback) {
     client.end(function(err) {
